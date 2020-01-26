@@ -15,7 +15,7 @@
     s3_bucket:
      name: jacksbucket-practise2
      aws_access_key: AKIA54UFFK5ZLXJ3C7P3
-     aws_secret_key: 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
+     aws_secret_key: "{{ aws_secret_key }}" 
      policy: "{{ lookup( 'file','mypolicytest.json' )}}"
      state: present
      region: eu-west-1
