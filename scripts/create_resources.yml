@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  tasks: 
+  - name: Creating DB
+    rds:
+     command: create
+     instance_name: jacksdatabase1
+     db_engine: MySQL
+     size: 10
+     instance_type: db.t2.micro
+     username: mysql_admin
+     password: 1nsecure
+     region: eu-west-1
+  - name: Creating S3 bucket
+    s3_bucket:
+     name: jacksbucket-practise2
+     aws_access_key: AKIA54UFFK5ZLXJ3C7P3
+     aws_secret_key: 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
+     policy: "{{ lookup( 'file','mypolicytest.json' )}}"
+     state: present
+     region: eu-west-1

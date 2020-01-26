@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Destroy RDS
+    rds:
+     command: delete
+     instance_name: jacksdatabase1
+     region: eu-west-1
+  - name: Destroy S3
+    s3_bucket:
+     name: jacksbucket-practise2
+     state: absent
+     force: yes
